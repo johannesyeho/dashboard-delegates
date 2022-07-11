@@ -17,7 +17,12 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="../../assets/css/style.css">
     <!-- End layout styles -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+    <link rel="stylesheet" href="../../assets/additional/css/feather.css">
+    <link rel="stylesheet" href="../../assets/additional/css/dataTables.bootstrap4.css">
 </head>
 
 <body>
@@ -151,8 +156,8 @@
                             <li class="nav-item"> <a class="nav-link" href="./mdi2.html"> Data Delegates
                                 </a>
                             </li>
-                            <li class="nav-item"> <a class="nav-link" href="./mdi.html"> Validation </a>
-                            </li>
+                            <!-- <li class="nav-item"> <a class="nav-link" href="./mdi.html"> Validation </a>
+                            </li> -->
                         </ul>
                     </div>
                 </li>
@@ -161,13 +166,13 @@
                         <span class="menu-icon">
                             <i class="mdi mdi-security"></i>
                         </span>
-                        <span class="menu-title">FAQ</span>
+                        <span class="menu-title">Help Desk</span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="collapse" id="auth">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="../../pages/samples/blank-page.html">
-                                    Timeline </a></li>
+                            <li class="nav-item"> <a class="nav-link" href="../../pages/samples/blank-page.html"> FAQs
+                                </a></li>
                             <li class="nav-item"> <a class="nav-link" href="../../pages/samples/blank-page2.html">
                                     Contact Support </a></li>
                         </ul>
@@ -303,14 +308,32 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Data Delegates</h4>
-                                    <p class="card-description"> Berisi data registrasi delegates
+                                    <p class="card-description"> Berisi data registrasi,approve/reject, dan upload
+                                        report delegates
                                         <code>PAGE ADMIN</code>
                                     </p>
+                                    <div class="row mb-4">
+                                        <div class="col-xl-12 col-lg-12 col-12">
+                                            <div class="template-demo">
+                                                <button type="button" class="btn btn-primary btn-sm">Education</button>
+                                                <button type="button"
+                                                    class="btn btn-secondary btn-sm">Economics</button>
+                                                <button type="button" class="btn btn-success btn-sm">Social &
+                                                    Humanity</button>
+                                                <button type="button" class="btn btn-danger btn-sm">Renewable
+                                                    Energy</button>
+                                                <button type="button" class="btn btn-warning btn-sm">Health
+                                                    Architecture</button>
+                                                <button type="button" class="btn btn-info btn-sm">Urban and Regional
+                                                    Planning</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="table-responsive">
-                                        <table class="table table-striped">
+                                        <table class="table table-striped datatables" id="dataTable-1">
                                             <thead>
                                                 <tr>
-                                                    <th> # </th>
+                                                    <th>#</th>
                                                     <th> Nama </th>
                                                     <th> Alamat </th>
                                                     <th> TTL </th>
@@ -320,115 +343,416 @@
                                                     <th> Angkatan</th>
                                                     <th> Room 1</th>
                                                     <th> Room 2</th>
-                                                    <!-- <th> CV</th>
+                                                    <th> CV</th>
                                                     <th> Motlet</th>
                                                     <th> Study Case 1</th>
                                                     <th> Study Case 2</th>
                                                     <th> KTM</th>
                                                     <th> E-Sertifikat</th>
-                                                    <th class="text-center"> Approval</th> -->
+                                                    <th class="text-center aprovee"> Approval</th>
+                                                    <th class="text-center"> Report</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <!-- <td class="py-1">
-                                                        <img src="../../assets/images/faces-clipart/pic-1.png"
-                                                            alt="image" />
-                                                    </td> -->
-                                                    <td> 1 </td>
-                                                    <td> Herman Beck </td>
-                                                    <td> Semarang, Jawa Tengah </td>
-                                                    <td> 21/03/22 </td>
-                                                    <td> Semarang </td>
-                                                    <td> Universitas Diponegoro </td>
-                                                    <td> Teknik Kimia </td>
-                                                    <td> 2019 </td>
-                                                    <td> Education </td>
-                                                    <td> Economycs </td>
+                                                    <td>368</td>
+                                                    <td>Imani Lara</td>
+                                                    <td>(478) 446-9234</td>
+                                                    <td>Asset Management</td>
+                                                    <td>Borland</td>
+                                                    <td>9022 Suspendisse Rd.</td>
+                                                    <td>High Wycombe</td>
+                                                    <td>Jun 8, 2019</td>
+                                                    <td>Jun 8, 2019</td>
+                                                    <td>Jun 8, 2019</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary btn-md">CV</button>
+                                                    </td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">Motlet</button></td>
+                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
+                                                            1</button></td>
+                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
+                                                            2</button></td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">KTM</button></td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">E-Sertifikat</button></td>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+                                                                <button type="button"
+                                                                    class="btn btn-success btn-md ">Approve</button>
+                                                            </div>
+                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+                                                                <button type="button"
+                                                                    class="btn btn-danger btn-md">Reject</button>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> <button type="button" class="btn btn-warning btn-icon-text">
+                                                            <i class="mdi mdi-upload btn-icon-prepend"></i> Upload
+                                                        </button></td>
                                                 </tr>
                                                 <tr>
+                                                    <td>323</td>
+                                                    <td>Walter Sawyer</td>
+                                                    <td>(671) 969-1704</td>
+                                                    <td>Tech Support</td>
+                                                    <td>Macromedia</td>
+                                                    <td>Ap #708-5152 Cursus. Ave</td>
+                                                    <td>Bath</td>
+                                                    <td>May 8, 2020</td>
+                                                    <td>May 8, 2020</td>
+                                                    <td>May 8, 2020</td>
                                                     <td>
-                                                        2
+                                                        <button type="button" class="btn btn-primary btn-md">CV</button>
                                                     </td>
-                                                    <td> Messsy Adam </td>
-                                                    <td> Semarang, Jawa Tengah </td>
-                                                    <td> 21/03/22 </td>
-                                                    <td> Semarang </td>
-                                                    <td> Universitas Diponegoro </td>
-                                                    <td> Teknik Kimia </td>
-                                                    <td> 2019 </td>
-                                                    <td> Education </td>
-                                                    <td> Economycs </td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">Motlet</button></td>
+                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
+                                                            1</button></td>
+                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
+                                                            2</button></td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">KTM</button></td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">E-Sertifikat</button></td>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+                                                                <button type="button"
+                                                                    class="btn btn-success btn-md ">Approve</button>
+                                                            </div>
+                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+                                                                <button type="button"
+                                                                    class="btn btn-danger btn-md">Reject</button>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> <button type="button" class="btn btn-warning btn-icon-text">
+                                                            <i class="mdi mdi-upload btn-icon-prepend"></i> Upload
+                                                        </button></td>
                                                 </tr>
                                                 <tr>
+                                                    <td>371</td>
+                                                    <td>Noelle Ray</td>
+                                                    <td>(803) 792-2559</td>
+                                                    <td>Human Resources</td>
+                                                    <td>Sibelius</td>
+                                                    <td>Ap #992-8933 Sagittis Street</td>
+                                                    <td>Ivanteyevka</td>
+                                                    <td>Apr 2, 2021</td>
+                                                    <td>Apr 2, 2021</td>
+                                                    <td>Apr 2, 2021</td>
                                                     <td>
-                                                        3
+                                                        <button type="button" class="btn btn-primary btn-md">CV</button>
                                                     </td>
-                                                    <td> John Richards </td>
-                                                    <td> Semarang, Jawa Tengah </td>
-                                                    <td> 21/03/22 </td>
-                                                    <td> Semarang </td>
-                                                    <td> Universitas Diponegoro </td>
-                                                    <td> Teknik Kimia </td>
-                                                    <td> 2019 </td>
-                                                    <td> Education </td>
-                                                    <td> Economycs </td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">Motlet</button></td>
+                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
+                                                            1</button></td>
+                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
+                                                            2</button></td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">KTM</button></td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">E-Sertifikat</button></td>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+                                                                <button type="button"
+                                                                    class="btn btn-success btn-md ">Approve</button>
+                                                            </div>
+                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+                                                                <button type="button"
+                                                                    class="btn btn-danger btn-md">Reject</button>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> <button type="button" class="btn btn-warning btn-icon-text">
+                                                            <i class="mdi mdi-upload btn-icon-prepend"></i> Upload
+                                                        </button></td>
                                                 </tr>
                                                 <tr>
+                                                    <td>302</td>
+                                                    <td>Portia Nolan</td>
+                                                    <td>(216) 946-1119</td>
+                                                    <td>Payroll</td>
+                                                    <td>Microsoft</td>
+                                                    <td>Ap #461-4415 Enim Rd.</td>
+                                                    <td>Kanpur Cantonment</td>
+                                                    <td>Dec 4, 2019</td>
+                                                    <td>Dec 4, 2019</td>
+                                                    <td>Dec 4, 2019</td>
                                                     <td>
-                                                        4
+                                                        <button type="button" class="btn btn-primary btn-md">CV</button>
                                                     </td>
-                                                    <td> Peter Meggik </td>
-                                                    <td> Semarang, Jawa Tengah </td>
-                                                    <td> 21/03/22 </td>
-                                                    <td> Semarang </td>
-                                                    <td> Universitas Diponegoro </td>
-                                                    <td> Teknik Kimia </td>
-                                                    <td> 2019 </td>
-                                                    <td> Education </td>
-                                                    <td> Economycs </td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">Motlet</button></td>
+                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
+                                                            1</button></td>
+                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
+                                                            2</button></td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">KTM</button></td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">E-Sertifikat</button></td>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+                                                                <button type="button"
+                                                                    class="btn btn-success btn-md ">Approve</button>
+                                                            </div>
+                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+                                                                <button type="button"
+                                                                    class="btn btn-danger btn-md">Reject</button>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> <button type="button" class="btn btn-warning btn-icon-text">
+                                                            <i class="mdi mdi-upload btn-icon-prepend"></i> Upload
+                                                        </button></td>
                                                 </tr>
                                                 <tr>
+                                                    <td>443</td>
+                                                    <td>Scarlett Anderson</td>
+                                                    <td>(486) 309-3564</td>
+                                                    <td>Tech Support</td>
+                                                    <td>Yahoo</td>
+                                                    <td>P.O. Box 988, 7282 Lobortis Avenue</td>
+                                                    <td>Lot</td>
+                                                    <td>Dec 27, 2019</td>
+                                                    <td>Dec 27, 2019</td>
+                                                    <td>Dec 27, 2019</td>
                                                     <td>
-                                                        5
+                                                        <button type="button" class="btn btn-primary btn-md">CV</button>
                                                     </td>
-                                                    <td> Edward </td>
-                                                    <td> Semarang, Jawa Tengah </td>
-                                                    <td> 21/03/22 </td>
-                                                    <td> Semarang </td>
-                                                    <td> Universitas Diponegoro </td>
-                                                    <td> Teknik Kimia </td>
-                                                    <td> 2019 </td>
-                                                    <td> Education </td>
-                                                    <td> Economycs </td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">Motlet</button></td>
+                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
+                                                            1</button></td>
+                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
+                                                            2</button></td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">KTM</button></td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">E-Sertifikat</button></td>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+                                                                <button type="button"
+                                                                    class="btn btn-success btn-md ">Approve</button>
+                                                            </div>
+                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+                                                                <button type="button"
+                                                                    class="btn btn-danger btn-md">Reject</button>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> <button type="button" class="btn btn-warning btn-icon-text">
+                                                            <i class="mdi mdi-upload btn-icon-prepend"></i> Upload
+                                                        </button></td>
                                                 </tr>
                                                 <tr>
+                                                    <td>345</td>
+                                                    <td>Kevyn Mills</td>
+                                                    <td>(976) 873-4833</td>
+                                                    <td>Tech Support</td>
+                                                    <td>Sibelius</td>
+                                                    <td>P.O. Box 666, 9803 Sed Avenue</td>
+                                                    <td>Kanpur Cantonment</td>
+                                                    <td>Dec 24, 2020</td>
+                                                    <td>Dec 24, 2020</td>
+                                                    <td>Dec 24, 2020</td>
                                                     <td>
-                                                        6
+                                                        <button type="button" class="btn btn-primary btn-md">CV</button>
                                                     </td>
-                                                    <td> John Doe </td>
-                                                    <td> Semarang, Jawa Tengah </td>
-                                                    <td> 21/03/22 </td>
-                                                    <td> Semarang </td>
-                                                    <td> Universitas Diponegoro </td>
-                                                    <td> Teknik Kimia </td>
-                                                    <td> 2019 </td>
-                                                    <td> Education </td>
-                                                    <td> Economycs </td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">Motlet</button></td>
+                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
+                                                            1</button></td>
+                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
+                                                            2</button></td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">KTM</button></td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">E-Sertifikat</button></td>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+                                                                <button type="button"
+                                                                    class="btn btn-success btn-md ">Approve</button>
+                                                            </div>
+                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+                                                                <button type="button"
+                                                                    class="btn btn-danger btn-md">Reject</button>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> <button type="button" class="btn btn-warning btn-icon-text">
+                                                            <i class="mdi mdi-upload btn-icon-prepend"></i> Upload
+                                                        </button></td>
                                                 </tr>
                                                 <tr>
+                                                    <td>356</td>
+                                                    <td>Sharon Buckley</td>
+                                                    <td>(429) 517-6784</td>
+                                                    <td>Tech Support</td>
+                                                    <td>Sibelius</td>
+                                                    <td>Ap #372-3407 Sed St.</td>
+                                                    <td>Lompret</td>
+                                                    <td>Mar 3, 2021</td>
+                                                    <td>Mar 3, 2021</td>
+                                                    <td>Mar 3, 2021</td>
                                                     <td>
-                                                        7
+                                                        <button type="button" class="btn btn-primary btn-md">CV</button>
                                                     </td>
-                                                    <td> Henry Tom </td>
-                                                    <td> Semarang, Jawa Tengah </td>
-                                                    <td> 21/03/22 </td>
-                                                    <td> Semarang </td>
-                                                    <td> Universitas Diponegoro </td>
-                                                    <td> Teknik Kimia </td>
-                                                    <td> 2019 </td>
-                                                    <td> Education </td>
-                                                    <td> Economycs </td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">Motlet</button></td>
+                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
+                                                            1</button></td>
+                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
+                                                            2</button></td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">KTM</button></td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">E-Sertifikat</button></td>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+                                                                <button type="button"
+                                                                    class="btn btn-success btn-md ">Approve</button>
+                                                            </div>
+                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+                                                                <button type="button"
+                                                                    class="btn btn-danger btn-md">Reject</button>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> <button type="button" class="btn btn-warning btn-icon-text">
+                                                            <i class="mdi mdi-upload btn-icon-prepend"></i> Upload
+                                                        </button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>263</td>
+                                                    <td>Fletcher Everett</td>
+                                                    <td>(735) 632-1255</td>
+                                                    <td>Customer Service</td>
+                                                    <td>Borland</td>
+                                                    <td>Ap #688-5120 Egestas Avenue</td>
+                                                    <td>Kanpur Cantonment</td>
+                                                    <td>Mar 27, 2020</td>
+                                                    <td>Mar 27, 2020</td>
+                                                    <td>Mar 27, 2020</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary btn-md">CV</button>
+                                                    </td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">Motlet</button></td>
+                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
+                                                            1</button></td>
+                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
+                                                            2</button></td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">KTM</button></td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">E-Sertifikat</button></td>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+                                                                <button type="button"
+                                                                    class="btn btn-success btn-md ">Approve</button>
+                                                            </div>
+                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+                                                                <button type="button"
+                                                                    class="btn btn-danger btn-md">Reject</button>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> <button type="button" class="btn btn-warning btn-icon-text">
+                                                            <i class="mdi mdi-upload btn-icon-prepend"></i> Upload
+                                                        </button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>227</td>
+                                                    <td>Bertha Ball</td>
+                                                    <td>(656) 680-1553</td>
+                                                    <td>Sales and Marketing</td>
+                                                    <td>Finale</td>
+                                                    <td>951-3836 Ac Rd.</td>
+                                                    <td>Cherbourg-Octeville</td>
+                                                    <td>Feb 11, 2020</td>
+                                                    <td>Feb 11, 2020</td>
+                                                    <td>Feb 11, 2020</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary btn-md">CV</button>
+                                                    </td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">Motlet</button></td>
+                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
+                                                            1</button></td>
+                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
+                                                            2</button></td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">KTM</button></td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">E-Sertifikat</button></td>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+                                                                <button type="button"
+                                                                    class="btn btn-success btn-md ">Approve</button>
+                                                            </div>
+                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+                                                                <button type="button"
+                                                                    class="btn btn-danger btn-md">Reject</button>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> <button type="button" class="btn btn-warning btn-icon-text">
+                                                            <i class="mdi mdi-upload btn-icon-prepend"></i> Upload
+                                                        </button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>396</td>
+                                                    <td>Phoebe Cobb</td>
+                                                    <td>(663) 233-0340</td>
+                                                    <td>Human Resources</td>
+                                                    <td>Adobe</td>
+                                                    <td>922 Enim. Avenue</td>
+                                                    <td>Fahler</td>
+                                                    <td>May 18, 2019</td>
+                                                    <td>May 18, 2019</td>
+                                                    <td>May 18, 2019</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary btn-md">CV</button>
+                                                    </td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">Motlet</button></td>
+                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
+                                                            1</button></td>
+                                                    <td> <button type="button" class="btn btn-primary btn-md">Study Case
+                                                            2</button></td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">KTM</button></td>
+                                                    <td> <button type="button"
+                                                            class="btn btn-primary btn-md">E-Sertifikat</button></td>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+                                                                <button type="button"
+                                                                    class="btn btn-success btn-md ">Approve</button>
+                                                            </div>
+                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+                                                                <button type="button"
+                                                                    class="btn btn-danger btn-md">Reject</button>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> <button type="button" class="btn btn-warning btn-icon-text">
+                                                            <i class="mdi mdi-upload btn-icon-prepend"></i> Upload
+                                                        </button></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -473,6 +797,18 @@
     <!-- endinject -->
     <!-- Custom js for this page -->
     <!-- End custom js for this page -->
+    <script src='../../assets/additional/js/jquery.dataTables.min.js'></script>
+    <script src='../../assets/additional/js/dataTables.bootstrap4.min.js'></script>
+    <script>
+        $('#dataTable-1').DataTable({
+            autoWidth: true,
+            "lengthMenu": [
+                [16, 32, 64, -1],
+                [16, 32, 64, "All"]
+            ],
+
+        });
+    </script>
 </body>
 
 </html>
