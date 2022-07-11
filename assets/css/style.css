@@ -30859,4 +30859,13 @@ div.tagsinput span.tag a {
   flex-grow: 1;
 }
 
+/* faqs */
+.main-panel .content-wrapper .faqs_ .card-body .accordion .card-header {
+  background: linear-gradient(0deg, rgba(228, 66, 212, 1) 0%, rgba(93, 67, 255, 1) 100%);
+}
+
+.main-panel .content-wrapper .faqs_ .card-body .accordion .card-header strong {
+  color: #ffffff;
+}
+
 /*# sourceMappingURL=maps/style.css.map */
