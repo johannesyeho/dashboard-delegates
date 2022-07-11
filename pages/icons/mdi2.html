@@ -22,6 +22,7 @@
         rel="stylesheet">
     <link rel="shortcut icon" href="../../assets/images/favicon.png" />
     <link rel="stylesheet" href="../../assets/additional/css/feather.css">
+    <link rel="stylesheet" href="../../assets/additional/css/uppy.min.css">
     <link rel="stylesheet" href="../../assets/additional/css/dataTables.bootstrap4.css">
 </head>
 
@@ -390,9 +391,41 @@
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td> <button type="button" class="btn btn-warning btn-icon-text">
-                                                            <i class="mdi mdi-upload btn-icon-prepend"></i> Upload
-                                                        </button></td>
+                                                    <td> <button type="button" class="btn btn-warning btn-icon-text"
+                                                            data-toggle="modal" data-target="#verticalModal"><i
+                                                                class="mdi mdi-upload btn-icon-prepend"></i> Upload
+                                                        </button>
+                                                    </td>
+
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="verticalModal" tabindex="-1"
+                                                        role="dialog" aria-labelledby="verticalModalTitle"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="verticalModalTitle">
+                                                                        Upload Report Delegates</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div id="drag-drop-area"></div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <p>Pastikan document yang diupload sudah benar</p>
+                                                                    <!-- <button type="button" class="btn mb-2 btn-secondary"
+                                                                        data-dismiss="modal">Close</button>
+                                                                    <button type="button"
+                                                                        class="btn mb-2 btn-primary">Save
+                                                                        changes</button> -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </tr>
                                                 <tr>
                                                     <td>323</td>
@@ -799,6 +832,7 @@
     <!-- End custom js for this page -->
     <script src='../../assets/additional/js/jquery.dataTables.min.js'></script>
     <script src='../../assets/additional/js/dataTables.bootstrap4.min.js'></script>
+    <script src='../../assets/additional/js/uppy.min.js'></script>
     <script>
         $('#dataTable-1').DataTable({
             autoWidth: true,
@@ -808,6 +842,25 @@
             ],
 
         });
+    </script>
+    <script>
+        var uptarg = document.getElementById('drag-drop-area');
+        if (uptarg) {
+            var uppy = Uppy.Core().use(Uppy.Dashboard, {
+                inline: true,
+                target: uptarg,
+                proudlyDisplayPoweredByUppy: false,
+                theme: 'dark',
+                width: 770,
+                height: 210,
+                plugins: ['Webcam']
+            }).use(Uppy.Tus, {
+                endpoint: 'https://master.tus.io/files/'
+            });
+            uppy.on('complete', (result) => {
+                console.log('Upload complete! We’ve uploaded these files:', result.successful)
+            });
+        }
     </script>
 </body>
 
